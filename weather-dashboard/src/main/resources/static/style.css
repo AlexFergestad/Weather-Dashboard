@@ -2,10 +2,19 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 50px;
+            /* original margin-top: 50px;
+            */
+            /* New */ display: flex;
+            /* New */ align-items: center;
+            /* New */ height: 100vh;
+            /* New */ margin: 0;
         }
         .container {
-            margin-bottom: 20px;
+            /* original margin-bottom: 20px;
+            */
+            margin: 0 auto;
+            margin-top: 50px;
+            text-align: center;
         }
         h1 {
             font-size: 3em;

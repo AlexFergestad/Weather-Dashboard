@@ -1,3 +1,4 @@
+package com.weather.weatherdashboard;
 public class WeatherInfo {
     private String cityName;
     private double temperature;

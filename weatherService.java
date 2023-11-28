@@ -5,31 +5,20 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class WeatherService {
+   private final String apiKey = "0fabcc4be3dfbcc64b13954252176305";
+   private final String baseUrl = "http://api.openweathermap.org/data/2.5/weather";
 
-    private final String apiKey = "0fabcc4be3dfbcc64b13954252176305";
-    private final String baseUrl = "http://api.openweathermap.org/data/2.5/weather";
+   public WeatherService() {
+   }
 
-    public WeatherInfo getWeather(String city) {
-        String url = baseUrl + "?q=" + city + "&appid=" + apiKey + "&units=metric";
-        RestTemplate restTemplate = new RestTemplate();
-        OpenWeatherMapResponse response = restTemplate.getForObject(url, OpenWeatherMapResponse.class);
+   public WeatherInfo getWeather(String city) {
+      String url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=0fabcc4be3dfbcc64b13954252176305&units=metric";
+      RestTemplate restTemplate = new RestTemplate();
+      OpenWeatherMapResponse response = (OpenWeatherMapResponse)restTemplate.getForObject(url, OpenWeatherMapResponse.class, new Object[0]);
+      return response != null ? this.mapToWeatherInfo(response) : null;
+   }
 
-        if (response != null) {
-            return mapToWeatherInfo(response);
-        } else {
-            return null; // Handle error or return default WeatherInfo
-        }
-    }
-
-    private WeatherInfo mapToWeatherInfo(OpenWeatherMapResponse response) {
-        return new WeatherInfo(
-            response.getName(),
-            response.getMain().getTemp(),
-            response.getMain().getHumidity(),
-            response.getWind().getSpeed(),
-            response.getWeather().get(0).getDescription(),
-            response.getUvi(),
-            response.getSys().getSunset()
-        );
-    }
+   private WeatherInfo mapToWeatherInfo(OpenWeatherMapResponse response) {
+      return new WeatherInfo(response.getName(), response.getMain().getTemp(), response.getMain().getHumidity());
+   }
 }

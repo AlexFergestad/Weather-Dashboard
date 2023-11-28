@@ -1,22 +1,57 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Weather Dashboard</title>
+    <meta charset="UTF-8">
+    <title>Weather Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        .container div {
+            margin-top: 20px;
+        }
+        .container h2 {
+            font-size: 2em;
+        }
+        .container p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-    <h2>Weather Dashboard</h2>
-    <div>
-        <form th:action="@{/weather/search}" th:object="${search}" method="post">
-            <input type="text" th:field="*{query}" placeholder="Enter city name" required />
+    <div class="container">
+        <h1>Weather Information</h1>
+        <form action="/weather" method="get">
+            <input type="text" name="city" placeholder="Enter city name">
             <button type="submit">Search</button>
         </form>
-        <p th:if="${error}" th:text="${error}"></p>
-    </div>
-    <div th:if="${weatherInfo}">
-        <h3>Weather Details for <span th:text="${weatherInfo.cityName}"></span>:</h3>
-        <p>Temperature: <span th:text="${weatherInfo.temperature}"></span>°C</p>
-        <p>Humidity: <span th:text="${weatherInfo.humidity}"></span>%</p>
-        <p>Wind Speed: <span th:text="${weatherInfo.windSpeed}"></span>km/h</p>
+        <div th:if="${weatherInfo}">
+            <h2 th:text="${weatherInfo.cityName}"></h2>
+            <p th:text="${'Temperature: ' + weatherInfo.temperature}"></p>
+            <p th:text="${'Wind Speed: ' + weatherInfo.windSpeed}"></p>
+            <p th:text="${'Humidity: ' + weatherInfo.humidity}"></p>
+            <p th:text="${'Sky Condition: ' + weatherInfo.skyCondition}"></p>
+            <p th:text="${'UV Index: ' + weatherInfo.uvIndex}"></p>
+            <p th:text="${'Sunset: ' + weatherInfo.sunSet}"></p>
+        </div>
     </div>
 </body>
 </html>

@@ -13,6 +13,8 @@
             <input type="text" name="city" placeholder="Enter city name">
             <button type="submit">Search</button>
         </form>
+    
+        
         <div th:if="${weatherInfo}">
             <h2 th:text="${weatherInfo.cityName}"></h2>
             <p th:text="${'Temperature: ' + weatherInfo.temperature}"></p>

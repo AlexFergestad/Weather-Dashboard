@@ -19,22 +19,24 @@ public class WeatherDashboardController {
         this.weatherService = weatherService;
     }
 
-    @GetMapping
+    @GetMapping // modified it to ("/weather") delete it if it changes it up
     public String showSearchForm(Model model) {
         model.addAttribute("search", new Search());
-        return "weather";
-
+        // return "weather";
+        return "index";
     }
 
     @PostMapping("/search")
     public String searchWeather(@ModelAttribute Search search, Model model) {
         if (search.getQuery().isEmpty()) {
             model.addAttribute("error", "City name must not be empty");
-            return "weather";
+            // return "weather";
+            return "index";
         }
         WeatherInfo weatherInfo = weatherService.getWeatherByCityName(search.getQuery());
         model.addAttribute("weatherInfo", weatherInfo);
-        return "weather";
+        // return "weather";
+        return "index";
     }
 
     // Inner class for search

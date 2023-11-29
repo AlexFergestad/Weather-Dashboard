@@ -14,13 +14,25 @@
             <button type="submit">Search</button>
         </form>
         <div th:if="${weatherInfo}">
-            <h2 th:text="${weatherInfo.cityName}"></h2>
-            <p th:text="${'Temperature: ' + weatherInfo.temperature}"></p>
-            <p th:text="${'Wind Speed: ' + weatherInfo.windSpeed}"></p>
-            <p th:text="${'Humidity: ' + weatherInfo.humidity}"></p>
-            <p th:text="${'Sky Condition: ' + weatherInfo.sky}"></p>
-            <p th:text="${'UV Index: ' + weatherInfo.uvIndex}"></p>
-            <p th:text="${'Sunset: ' + weatherInfo.sunSet}"></p>
+            <label class="city" th:text="${weatherInfo.cityName}"></label>
+            <br />
+            <label class="temp" th:text="${weatherInfo.temperature}"></label>
+            <div class="weather-details">
+                <table class="weather-table">
+                    <tr>
+                        <td>Wind Speed</td>
+                        <td>Humidity</td>
+                        <td>Sky Condition</td>
+                        <td>Sunset</td>
+                    </tr>
+                    <tr>
+                        <td><p th:text="${weatherInfo.windSpeed}"></p></td>
+                        <td><p th:text="${weatherInfo.humidity}"></p></td>
+                        <td><p th:text="${weatherInfo.sky}"></p></td>
+                        <td><p th:text="${weatherInfo.sunSet}"></p></td>
+                    </tr>
+                </table>       
+            </div>
         </div>
 
         <div th:if="${error}">

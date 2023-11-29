@@ -1,0 +1,40 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            /* original margin-top: 50px;
+            */
+            /* New */ display: flex;
+            /* New */ align-items: center;
+            /* New */ height: 100vh;
+            /* New */ margin: 0;
+        }
+        .container {
+            /* original margin-bottom: 20px;
+            */
+            margin: 0 auto;
+            margin-top: 50px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        .container div {
+            margin-top: 20px;
+        }
+        .container h2 {
+            font-size: 2em;
+        }
+        .container p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }

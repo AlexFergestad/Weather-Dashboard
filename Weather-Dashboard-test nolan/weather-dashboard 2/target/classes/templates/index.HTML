@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Weather Dashboard</h1>
+        <form action="/weather" method="get">
+            <input type="text" name="city" placeholder="Enter city name">
+            <button type="submit">Search</button>
+        </form>
+        <div th:if="${weatherInfo}">
+            <h2 th:text="${weatherInfo.cityName}"></h2>
+            <p th:text="${'Temperature: ' + weatherInfo.temperature}"></p>
+            <p th:text="${'Wind Speed: ' + weatherInfo.windSpeed}"></p>
+            <p th:text="${'Humidity: ' + weatherInfo.humidity}"></p>
+            <p th:text="${'Sky Condition: ' + weatherInfo.sky}"></p>
+            <p th:text="${'UV Index: ' + weatherInfo.uvIndex}"></p>
+            <p th:text="${'Sunset: ' + weatherInfo.sunSet}"></p>
+        </div>
+
+        <div th:if="${error}">
+            <p th:text="${error}" style="color: red;"></p>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Weather Dashboard</h1>
+        <form action="/weather" method="get">
+            <input type="text" name="city" placeholder="Enter city name">
+            <button type="submit">Search</button>
+        </form>
+        <div th:if="${weatherInfo}">
+            <label class="city" th:text="${weatherInfo.cityName}"></label>
+            <br />
+            <table class="temp-details">
+                <tr>
+                    <td>Low</td>
+                    <td></td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td><label class="tempMinMax" th:text="${weatherInfo.tempMin}"></label></td>
+                    <td><label class="temp" th:text="${weatherInfo.temperature}"></label></td>
+                    <td><label class="tempMinMax" th:text="${weatherInfo.tempMax}"></label></td>
+                </tr>
+            </table>
+            <div class="weather-details">
+                <table class="weather-table">
+                    <tr>
+                        <td>Wind Speed</td>
+                        <td>Humidity</td>
+                        <td>Sky Condition</td>
+                        <td>Sunset</td>
+                    </tr>
+                    <tr>
+                        <td><p th:text="${weatherInfo.windSpeed}"></p></td>
+                        <td><p th:text="${weatherInfo.humidity}"></p></td>
+                        <td><p th:text="${weatherInfo.sky}"></p></td>
+                        <td><p th:text="${weatherInfo.sunSet}"></p></td>
+                    </tr>
+                </table>       
+            </div>
+        </div>
+
+        <div th:if="${error}">
+            <p th:text="${error}" style="color: red;"></p>
+        </div>
+        
+    </div>
+</body>
+</html>

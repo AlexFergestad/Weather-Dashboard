@@ -8,33 +8,69 @@
             /* New */ align-items: center;
             /* New */ height: 100vh;
             /* New */ margin: 0;
+            background-color: lightblue;
         }
         .container {
             /* original margin-bottom: 20px;
             */
             margin: 0 auto;
-            margin-top: 50px;
+            margin-top: 0px;
             text-align: center;
+            width: 90%;
         }
         h1 {
-            font-size: 3em;
+            font-size: 2em;
         }
         input[type="text"] {
             padding: 10px;
             font-size: 1.2em;
+            border-radius: 10px;
         }
         button {
             padding: 10px 20px;
             font-size: 1.2em;
             cursor: pointer;
+            border-radius: 10px;
         }
         .container div {
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .container h2 {
-            font-size: 2em;
+            font-size: 5em;
+        }
+        .container h3 {
+            font-size: 3em;
+        }
+        .temp {
+            font-size: 4em;
+        }
+        .city{
+            font-weight: bold;
+            font-size: 5em;
         }
         .container p {
             font-size: 1.2em;
             margin: 5px 0;
+        }
+        .weather-details {
+            margin-top: 20px;
+            border-top: 1px solid #ccc; /* Adding a border to separate from city and temperature */
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            background-color: white;
+            width: 100%;
+            border-radius: 10px;
+            
+        }
+        .weather-table {
+            width: 100%;
+          }
+        
+        .weather-details p {
+            margin: 5px 0;
+            font-size: 1.2em;
+            flex: 1;
+            max-width: 200px;
         }

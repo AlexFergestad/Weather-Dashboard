@@ -81,3 +81,6 @@
             flex: 1;
             max-width: 200px;
         }
+        .td {
+            text-align: center;
+        }

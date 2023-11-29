@@ -8,8 +8,7 @@ public class WeatherInfo {
     private String humidity;
     private String windSpeed;
     private String sky;
-    private int uvIndex;
-    private ZonedDateTime sunSet;
+    private String sunSet;
 
     public WeatherInfo() {
 
@@ -55,19 +54,11 @@ public class WeatherInfo {
         this.sky = sky;
     }
 
-    public int getUvIndex() {
-        return uvIndex;
-    }
-
-    public void setUvIndex(int uvIndex) {
-        this.uvIndex = uvIndex;
-    }
-
-    public ZonedDateTime getSunSet() {
+    public String getSunSet() {
         return sunSet;
     }
 
-    public void setSunSet(ZonedDateTime sunSet) {
+    public void setSunSet(String sunSet) {
         this.sunSet = sunSet;
     }
 

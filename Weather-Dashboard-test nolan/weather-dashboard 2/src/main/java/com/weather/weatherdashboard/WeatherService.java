@@ -39,12 +39,11 @@ public class WeatherService {
         // Map JSON nodes to WeatherInfo fields
         WeatherInfo weatherInfo = new WeatherInfo();
         weatherInfo.setCityName(rootNode.path("name").asText());
-        weatherInfo.setTemperature(rootNode.path("main").path("temp").asText()+ degreesSymbol + "C");
+        weatherInfo.setTemperature(rootNode.path("main").path("temp").asText()+ degreesSymbol + "F");
         weatherInfo.setHumidity(rootNode.path("main").path("humidity").asText() + "%");
         weatherInfo.setWindSpeed(rootNode.path("wind").path("speed").asText() + " mph");
         weatherInfo.setSky(rootNode.path("weather").get(0).path("main").asText());
-        weatherInfo.setUvIndex(0);
-        weatherInfo.setSunSet(convertUtcToSystemDateTime(rootNode.path("sys").path("sunset").asLong()));
+        weatherInfo.setSunSet(convertUtcToSystemDateTime(rootNode.path("sys").path("sunset").asLong()).toLocalTime().toString());
 
         return weatherInfo;
     }
